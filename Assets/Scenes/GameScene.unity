@@ -1057,8 +1057,8 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.25, z: 0}
-  m_LocalScale: {x: 5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.655, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 408390170}
@@ -1129,15 +1129,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: faba61ede2fd046809a738ef5dc3b866, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.334
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: faba61ede2fd046809a738ef5dc3b866, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: faba61ede2fd046809a738ef5dc3b866, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: -2.043
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: faba61ede2fd046809a738ef5dc3b866, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1180,10 +1180,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: faba61ede2fd046809a738ef5dc3b866, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 408390169}
+      addedObject: {fileID: 408390168}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: faba61ede2fd046809a738ef5dc3b866, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 408390168}
+      addedObject: {fileID: 408390171}
   m_SourcePrefab: {fileID: 100100000, guid: faba61ede2fd046809a738ef5dc3b866, type: 3}
 --- !u!1 &408390167 stripped
 GameObject:
@@ -1215,7 +1215,12 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &408390169
+--- !u!4 &408390170 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: faba61ede2fd046809a738ef5dc3b866, type: 3}
+  m_PrefabInstance: {fileID: 408390166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &408390171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1224,16 +1229,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 408390167}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78bd374a371ca4eeabcd9626d2bb6658, type: 3}
+  m_Script: {fileID: 11500000, guid: ae369f24e53ba40d3a1953f0a1d8ebc9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 5
-  mouseSensitivity: 2
---- !u!4 &408390170 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: faba61ede2fd046809a738ef5dc3b866, type: 3}
-  m_PrefabInstance: {fileID: 408390166}
-  m_PrefabAsset: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::SeatedPlayerController
+  mouseSensitivity: 100
+  maxLookUp: 60
+  maxLookDown: -60
+  maxLookLeft: 80
+  maxLookRight: 80
+  cameraTransform: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
