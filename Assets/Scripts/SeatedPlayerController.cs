@@ -12,7 +12,7 @@ public class SeatedPlayerController : MonoBehaviour
     [Header("Zoom Settings")]
     public float zoomSpeed = 10f;
     public float minZoom = 30f;  // More zoomed in (narrower FOV)
-    public float maxZoom = 60f;  // Default view (wider FOV)
+    public float maxZoom =75f;  // Default view (wider FOV)
     public float zoomSmoothness = 5f;  // How smooth the zoom transition is
     
     [Header("References")]
@@ -23,29 +23,28 @@ public class SeatedPlayerController : MonoBehaviour
     private Camera cam;
     private float targetFOV;
     
-    void Start()
+void Start()
+{
+    // Lock cursor to center of screen
+    Cursor.lockState = CursorLockMode.Locked;
+    Cursor.visible = false;
+    
+    // If camera not assigned, try to find Main Camera as child
+    if (cameraTransform == null)
     {
-        // Lock cursor to center of screen
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        
-        // If camera not assigned, try to find Main Camera as child
-        if (cameraTransform == null)
-        {
-            cameraTransform = GetComponentInChildren<Camera>().transform;
-        }
-        
-        // Get camera component
-        cam = cameraTransform.GetComponent<Camera>();
-        
-        // Set initial FOV
-        if (cam != null)
-        {
-            targetFOV = cam.fieldOfView;
-            // Clamp initial FOV to be within our zoom range
-            targetFOV = Mathf.Clamp(targetFOV, minZoom, maxZoom);
-        }
+        cameraTransform = GetComponentInChildren<Camera>().transform;
     }
+    
+    // Get camera component
+    cam = cameraTransform.GetComponent<Camera>();
+    
+    // Set initial FOV to maxZoom instead of reading from camera
+    if (cam != null)
+    {
+        targetFOV = maxZoom;  // <-- Changed from cam.fieldOfView to maxZoom
+        cam.fieldOfView = maxZoom;  // <-- Set camera to match
+    }
+}
     
     void Update()
     {
